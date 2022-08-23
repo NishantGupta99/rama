@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
  * Unit test for Greeting App.
  */
 
-public class AppTest {
+public class GreetingTest {
   Greeting greeting;
 
   @Before
@@ -21,25 +21,26 @@ public class AppTest {
   public void TestHello() {
 
     String result = greeting.sayHello();
-    assertEquals(result, "Hello");
+    assertEquals("Hello", result);
+
 
   }
 
   @Test
   public void TestHi() {
     String result = greeting.sayHi();
-    assertEquals(result, "Hi");
+    assertEquals( "Hi",result);
   }
 
   @Test
   public void TestWelcome() {
     String result = greeting.sayWelcome();
-    assertEquals(result, "Welcome");
+    assertEquals( "Welcome",result);
   }
 
   @Test
   public void TestThanks() {
     String result = greeting.sayThanks();
-    assertEquals(result, "Thanks");
+    assertEquals("Thanks",result);
   }
 }
