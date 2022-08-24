@@ -8,11 +8,11 @@ import org.springframework.web.bind.annotation.RestController;
 public class AppController {
     @GetMapping("/hello")
     public String sayHello() {
-        return "Hello: ";
+        return "Hello Rama: ";
     }
 
     @RequestMapping("/hi")
     public String sayHi() {
-        return "Hi : ";
+        return "Hi Rama : ";
     }
 }
