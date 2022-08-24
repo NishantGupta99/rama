@@ -25,7 +25,7 @@ public float division(){
 return 4;
 }
 
-Trest it with browser
+test it with browser
 test with postman
 test with curl
 
