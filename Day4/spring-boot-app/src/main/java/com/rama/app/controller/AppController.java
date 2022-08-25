@@ -4,12 +4,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class AppController {	
-	    @RequestMapping("/")
+	    @RequestMapping("/hello")
 	    public String index() {
 	        return "Hello from controller";
 	    }
 
-		@GetMapping("/data")
+		@GetMapping("/get")
 		public String indexdata() {
 			return "getting data from controller";
 		}
