@@ -1,13 +1,12 @@
-package com.rama.controller;
+package com.rama.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootRestApplication {
-
+public class Application 
+{
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootRestApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
-
 }
