@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @RunWith(SpringRunner.class)
 @WebMvcTest({StudentController.class})
 @ActiveProfiles(value = "test")
-class StudentMicroserviceApplicationTests {
+public class StudentControllerTests {
 	@Autowired
 	private MockMvc mockMvc;
 	@Value("${student.get.url}")
@@ -42,32 +42,30 @@ class StudentMicroserviceApplicationTests {
 
 	@Test
 	public void testStudentGet() throws Exception {
-		ResultActions responseEntity = processApiRequest(geturl, HttpMethod.GET, null,
-				null, null, null);
+		ResultActions responseEntity = processApiRequest(geturl, HttpMethod.GET, "test", null);
 		responseEntity.andExpect(status().isOk());
 		/*ObjectMapper mapper = new ObjectMapper();
 		String result = responseEntity.andReturn().getResponse().getContentAsString();
 		assertEquals("get employee ", result);*/
 	}
 
-	private ResultActions processApiRequest(String api, HttpMethod methodType, String name, Student student, String username, String password) {
+	private ResultActions processApiRequest(String api, HttpMethod methodType, String name, Student student) {
 		ResultActions response = null;
-		String secret = "Basic " + Base64Utils.encodeToString((username+":"+password).getBytes());
 		try {
 			switch (methodType) {
 				case GET:
-					response = mockMvc.perform(get(api).header(HttpHeaders.AUTHORIZATION, secret));
+					response = mockMvc.perform(get(api).param("name",name));
 					break;
 				case POST:
-					response = mockMvc.perform(post(api).header(HttpHeaders.AUTHORIZATION, secret).contentType(MediaType.APPLICATION_JSON)
+					response = mockMvc.perform(post(api).contentType(MediaType.APPLICATION_JSON)
 							.content(asJsonString(student)).accept(MediaType.APPLICATION_JSON));
 					break;
 				case PUT:
 					response = mockMvc.perform(put(api, name).contentType(MediaType.APPLICATION_JSON)
-							.content(asJsonString(student)).accept(MediaType.APPLICATION_JSON));
+							.content(asJsonString(student)).param("name",name).accept(MediaType.APPLICATION_JSON));
 					break;
 				case DELETE:
-					response = mockMvc.perform(delete(api, name));
+					response = mockMvc.perform(delete(api, name).param("name",name));
 					break;
 				default:
 					fail("Method Not supported");

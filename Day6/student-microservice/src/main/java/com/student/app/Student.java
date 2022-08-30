@@ -7,14 +7,16 @@ public class Student {
     String rollNo;
     String name;
     String std;
+
+    public Student(){
+
+    }
     public Student(String rollNo, String name, String std) {
         this.rollNo = rollNo;
         this.name = name;
         this.std = std;
     }
-    public Student(){
 
-    }
 
 
     public String getRollNo() {
