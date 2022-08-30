@@ -42,11 +42,10 @@ public class StudentControllerTests {
 
 	@Test
 	public void testStudentGet() throws Exception {
-		ResultActions responseEntity = processApiRequest(geturl, HttpMethod.GET, "test", null);
+		ResultActions responseEntity  = mockMvc.perform(get(geturl).param("name","test"));
 		responseEntity.andExpect(status().isOk());
-		/*ObjectMapper mapper = new ObjectMapper();
 		String result = responseEntity.andReturn().getResponse().getContentAsString();
-		assertEquals("get employee ", result);*/
+		assertEquals("", result);
 	}
 
 	private ResultActions processApiRequest(String api, HttpMethod methodType, String name, Student student) {
