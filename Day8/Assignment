@@ -14,7 +14,7 @@ hopsital-application
 hospitalname
 address
 id
-patient
+List<patient>
 
 
 4 rest end
