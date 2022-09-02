@@ -9,6 +9,7 @@ import java.util.UUID;
 @Entity
 public class Message {
     @Id
+    @GeneratedValue
     @Column(name = "corelatiId")
     private Integer id;
     @Column(name = "to")
