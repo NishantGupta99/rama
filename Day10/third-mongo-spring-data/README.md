@@ -38,3 +38,6 @@ show tables
 
 db.customer.find()
 
+# swagger 
+
+http://localhost:8083/swagger-ui.html
