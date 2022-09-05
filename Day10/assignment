@@ -18,10 +18,10 @@ return list appointment
 
 PrescriptionController(both can access)
 
- GetMapping(patientname)
+ GetMapping /viewprescription(patientname)
  return prescription
 
- PostMapping
+ PostMapping/saveprescription
  savePrescription(Body)
 
 AppointMent:
@@ -35,7 +35,7 @@ prescription
 Precription:
 
 prescriptionId
-appintmentid
+appointmentid
 description
 patientName
 doctorName
