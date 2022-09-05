@@ -14,7 +14,7 @@ public class CreateController {
   CustomerRepository customerRepo;
 
   @RequestMapping(value = "/create", method = RequestMethod.POST)
-  public Customer create(@RequestBody Customer customer) {
+  public Customer saveCustomer(@RequestBody Customer customer) {
     customer = customerRepo.save(customer);
     return customer;
   }
