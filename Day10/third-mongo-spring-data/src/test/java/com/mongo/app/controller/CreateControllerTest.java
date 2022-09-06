@@ -53,4 +53,11 @@ public class CreateControllerTest {
         createController.modifyByID("custid1","custname");
         verify(customerRepository, times(1)).save(expectedCustomer);
     }
+
+    @Test
+    public void deleteyByIDTest() {
+        String customername= "custname";
+        createController.deleteByID(customername);
+        verify(customerRepository, times(1)).deleteByname(customername);
+    }
 }
