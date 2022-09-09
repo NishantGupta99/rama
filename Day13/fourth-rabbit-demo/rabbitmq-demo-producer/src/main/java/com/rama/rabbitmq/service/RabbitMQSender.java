@@ -17,15 +17,9 @@ public class RabbitMQSender {
   @Value("${rabbitmq.routingkey.name}")
   private String routingkey;
 
-  public void send(Employee company) {
-    rabbitTemplate.convertAndSend(exchange, routingkey, company);
-    System.out.println("Send msg = " + company);
+  public void send(Employee employee) {
+    rabbitTemplate.convertAndSend(exchange, routingkey, employee);
+    System.out.println("Send msg = " + employee);
 
   }
-/*
-  @RabbitListener(queues = "${rabbitmq.queue.name}")
-  public void recievedMessage(Employee employee) {
-    System.out.println("Recieved Message From RabbitMQ: " + employee);
-  }*/
-
 }
