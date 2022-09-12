@@ -1,7 +1,7 @@
 version: '3.3'
 services:
   mysql-app:
-    image: mysql:5.7
+    image: falcon007/third-mysql-app:0.0.1
     ports:
       - '8081:8081'
     depends_on:
